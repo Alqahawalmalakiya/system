@@ -12,7 +12,7 @@
     {
       "binding": "DB",
       "database_name": "royal-coffee-db",
-      "database_id": "00000000-0000-4000-8000-000000000000",
+      "database_id": "20fe07c9-3536-4336-9c1c-3bf67f28aa89",
       "migrations_dir": "drizzle"
     }
   ],

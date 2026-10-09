@@ -26,3 +26,17 @@
 /* Compact invoice details in two readable RTL columns. */
 .royal-invoice .invoice-meta{display:grid!important;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px 22px!important;align-items:start;width:100%}.royal-invoice .invoice-meta>span{display:block;min-width:0;overflow-wrap:anywhere;line-height:1.7}.royal-invoice .invoice-meta>small{grid-column:1/-1;margin-top:0!important}.pdf-export-sheet .invoice-meta{gap:8px 26px!important}
 @media(max-width:760px){.royal-invoice .invoice-meta{gap:7px 12px!important;font-size:12px}.pdf-export-sheet .invoice-meta{font-size:14px!important;gap:8px 26px!important}}
+
+/* Occasion schedule state: date comparisons use Jeddah's local date. */
+.booking-card.booking-ended{background:#eeeeef;border-color:#d4d5d7}
+.booking-card.booking-ended:hover{border-color:#aaaeb3}
+.booking-ended .date-tile{background:#e1e2e4;border-color:#cfd1d4}
+.booking-ended .date-tile strong,.booking-ended .date-tile span{color:#62676d}
+.booking-ended .badge{background:#d5d7da;color:#4d535b}
+.booking-card.booking-today{background:#e7f5e9;border-color:#86b68e}
+.booking-card.booking-today:hover{border-color:#4f915e}
+.booking-today .date-tile{background:#cce8d1;border-color:#a0c8a8}
+.booking-today .date-tile strong,.booking-today .date-tile span{color:#28683a}
+.booking-today .badge{background:#c7e8cd;color:#256437}
+.invoice-actions .delete-invoice-button{background:#fff0ef;border-color:#e1aaa5;color:#a33329}
+.invoice-actions button:disabled,.status-buttons button:disabled{opacity:.55;cursor:wait}

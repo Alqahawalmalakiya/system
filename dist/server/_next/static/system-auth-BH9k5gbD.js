@@ -1,0 +1,1 @@
+import{l as e}from"./headers-j0QAsRga.js";async function t(){let t=(await e()).get(`x-royal-user-email`);return t?{email:t,userId:t,displayName:t}:null}async function n(e){let n=await t();if(!n)throw Error(`Authentication required`);return n}export{n,t};

@@ -1,0 +1,1 @@
+export const defaultFoods=[{name:'خبز ملة',price:10000},{name:'عصيدة',price:13000},{name:'عريكة',price:15000},{name:'مفتوت',price:17000},{name:'مشغوث',price:15000},{name:'مراصيع',price:15000},{name:'سمن',price:11000},{name:'عسل',price:15000},{name:'نفر لحم',price:10000}];

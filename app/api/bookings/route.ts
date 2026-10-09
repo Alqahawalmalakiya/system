@@ -28,3 +28,14 @@ export async function PATCH(req:Request){
  if(!updated.length)return Response.json({error:'الحجز غير موجود'},{status:404});
  return Response.json(updated[0],{headers:{'Cache-Control':'no-store'}});
 }
+
+export async function DELETE(req:Request){
+ if(!await getSystemUser())return Response.json({error:'سجل الدخول أولاً'},{status:401});
+ if(req.headers.get('origin')!==new URL(req.url).origin)return Response.json({error:'طلب غير مسموح'},{status:403});
+ let b:any;try{b=await req.json()}catch{return Response.json({error:'بيانات غير صالحة'},{status:400})}
+ if(!b||typeof b.id!=='string'||!/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(b.id))return Response.json({error:'رقم الحجز غير صالح'},{status:400});
+ // Keep invoice_numbers so a deleted invoice number is never issued again.
+ const deleted=await getDb().delete(bookings).where(eq(bookings.id,b.id)).returning({id:bookings.id});
+ if(!deleted.length)return Response.json({error:'الفاتورة غير موجودة'},{status:404});
+ return Response.json({deletedId:deleted[0].id},{headers:{'Cache-Control':'no-store'}});
+}

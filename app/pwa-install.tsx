@@ -1,33 +1,54 @@
 'use client';
 import {useEffect,useState} from 'react';
 
-type InstallPrompt=Event&{prompt:()=>Promise<void>;userChoice:Promise<{outcome:'accepted'|'dismissed'}>};
+const installedVersion=process.env.ROYAL_APP_VERSION||'development';
+function isEditing(){
+ return Boolean(document.querySelector('[role="dialog"]')||
+  Array.from(document.querySelectorAll<HTMLInputElement>('.catalog-form input')).some(input=>input.value.trim())||
+  (document.activeElement&&['INPUT','TEXTAREA','SELECT'].includes(document.activeElement.tagName)));
+}
 export function PwaInstall(){
- const [prompt,setPrompt]=useState<InstallPrompt|null>(null);
- const [ios,setIos]=useState(false);
- const [hidden,setHidden]=useState(false);
- const [busy,setBusy]=useState(false);
+ const [updateReady,setUpdateReady]=useState(false);
  useEffect(()=>{
-  if('serviceWorker' in navigator)navigator.serviceWorker.register('/sw.js',{scope:'/',updateViaCache:'none'}).catch(()=>{});
-  const standalone=window.matchMedia('(display-mode: standalone)').matches||(navigator as Navigator&{standalone?:boolean}).standalone;
-  if(standalone){setHidden(true);return}
-  setIos(/iPad|iPhone|iPod/.test(navigator.userAgent)||(navigator.platform==='MacIntel'&&navigator.maxTouchPoints>1));
-  const before=(event:Event)=>{event.preventDefault();setPrompt(event as InstallPrompt)};
-  const installed=()=>{setHidden(true);setPrompt(null)};
-  window.addEventListener('beforeinstallprompt',before);window.addEventListener('appinstalled',installed);
-  return()=>{window.removeEventListener('beforeinstallprompt',before);window.removeEventListener('appinstalled',installed)};
+  let stopped=false,checking=false;
+  let registration:ServiceWorkerRegistration|undefined;
+  if('serviceWorker' in navigator){
+   navigator.serviceWorker.register('/sw.js',{scope:'/',updateViaCache:'none'}).then(value=>{
+    if(stopped)return;registration=value;void value.update().catch(()=>{});
+   }).catch(()=>{});
+  }
+  const preventAutomaticPrompt=(event:Event)=>event.preventDefault();
+  window.addEventListener('beforeinstallprompt',preventAutomaticPrompt);
+  async function checkVersion(){
+   if(stopped||checking||document.visibilityState==='hidden'||!navigator.onLine)return;
+   checking=true;
+   try{
+    void registration?.update().catch(()=>{});
+    const response=await fetch('/api/app-version',{cache:'no-store'});
+    if(!response.ok)return;
+    const data=await response.json() as {version?:string};
+    if(stopped||typeof data.version!=='string'||data.version==='development'||data.version===installedVersion)return;
+    setUpdateReady(true);
+    if(!isEditing())window.location.reload();
+   }catch{
+    // An offline or failed version check must never interrupt the invoice.
+   }finally{checking=false}
+  }
+  const resume=()=>{void checkVersion()};
+  window.addEventListener('focus',resume);
+  document.addEventListener('visibilitychange',resume);
+  const interval=window.setInterval(resume,60000);
+  resume();
+  return()=>{
+   stopped=true;window.clearInterval(interval);
+   window.removeEventListener('beforeinstallprompt',preventAutomaticPrompt);
+   window.removeEventListener('focus',resume);
+   document.removeEventListener('visibilitychange',resume);
+  };
  },[]);
- async function install(){
-  if(!prompt||busy)return;setBusy(true);
-  try{await prompt.prompt();const choice=await prompt.userChoice;if(choice.outcome==='accepted')setHidden(true);setPrompt(null)}catch{setPrompt(null)}finally{setBusy(false)}
- }
- if(hidden||(!prompt&&!ios))return null;
- return <aside role="region" aria-label="تثبيت القهوة الملكية" className="no-print" style={{position:'fixed',inset:'auto 12px 12px',width:'auto',maxWidth:440,margin:'0 auto',padding:16,zIndex:90,background:'#fffaf2',border:'1px solid #dbc8a9',borderRadius:14,boxShadow:'0 5px 25px #0002',display:'block'}}>
-  <div style={{display:'flex',alignItems:'center',gap:12}}>
-   <img src="/icons/icon-192.png" width="48" height="48" alt="شعار القهوة الملكية" style={{borderRadius:10}}/>
-   <div style={{flex:1}}><strong>ثبّت القهوة الملكية على جوالك</strong><p style={{fontSize:12,lineHeight:1.8,marginTop:4}}>{ios?'افتح في Safari، واضغط مشاركة ثم «إضافة إلى الشاشة الرئيسية».':'يفتح النظام بأيقونته مثل تطبيق مستقل.'}</p></div>
-   <button type="button" onClick={()=>setHidden(true)} aria-label="إخفاء تعليمات التثبيت" style={{fontSize:24,padding:4}}>×</button>
-  </div>
-  {prompt&&<button type="button" className="primary" disabled={busy} onClick={install} style={{marginTop:12,width:'100%'}}>{busy?'جاري التثبيت…':'تثبيت التطبيق'}</button>}
- </aside>;
+ if(!updateReady)return null;
+ return <div className="no-print" role="status" style={{position:'fixed',top:8,left:12,right:12,maxWidth:440,margin:'auto',padding:12,zIndex:95,background:'#fffaf2',border:'1px solid #dbc8a9',borderRadius:10,fontSize:13}}>
+  تحديث جديد جاهز. احفظ تعديلاتك وأغلق الفاتورة لتطبيقه تلقائيًا.
+  <button type="button" style={{marginRight:12,textDecoration:'underline'}} onClick={()=>{if(!isEditing())window.location.reload()}}>تحديث الآن</button>
+ </div>;
 }

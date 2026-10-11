@@ -40,3 +40,5 @@
 .booking-today .badge{background:#c7e8cd;color:#256437}
 .invoice-actions .delete-invoice-button{background:#fff0ef;border-color:#e1aaa5;color:#a33329}
 .invoice-actions button:disabled,.status-buttons button:disabled{opacity:.55;cursor:wait}
+.item-input.hospitality-item-input{grid-template-columns:1fr 1.5fr 1fr auto}
+@media(max-width:760px){.item-input.hospitality-item-input{grid-template-columns:1fr 1fr}.hospitality-item-input>button{justify-self:end}}

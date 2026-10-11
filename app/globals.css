@@ -42,3 +42,8 @@
 .invoice-actions button:disabled,.status-buttons button:disabled{opacity:.55;cursor:wait}
 .item-input.hospitality-item-input{grid-template-columns:1fr 1.5fr 1fr auto}
 @media(max-width:760px){.item-input.hospitality-item-input{grid-template-columns:1fr 1fr}.hospitality-item-input>button{justify-self:end}}
+.document-title{margin:8px 0 0!important;font-size:20px!important;color:#60412c}
+.quote-conversion{padding:18px;margin:18px 0;background:#f8f2e8;border:1px solid #dbc8a9;border-radius:9px}
+.quote-conversion p{margin-bottom:12px;line-height:1.8}
+.badge.quote{background:#f2e9d8;color:#86623e}
+@media(max-width:760px){.app aside nav{overflow-x:auto}.app aside nav button{flex:0 0 auto;white-space:nowrap}}

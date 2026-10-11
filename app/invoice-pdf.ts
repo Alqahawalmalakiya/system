@@ -9,7 +9,7 @@ export async function createInvoicePdf(element:HTMLElement,invoiceNumber:string)
  const rect=clone.getBoundingClientRect();
  const blocks=Array.from(clone.querySelectorAll('tr,.invoice-totals,.invoice-meta,.cancellation-note,.royal-footer')).map(e=>{const r=e.getBoundingClientRect();return {top:r.top-rect.top,bottom:r.bottom-rect.top}});
  const canvas=await html2canvas(clone,{scale:2,backgroundColor:'#ffffff',useCORS:true,logging:false,windowWidth:1100,scrollX:0,scrollY:0,onclone(doc){doc.documentElement.style.overflow='visible';doc.body.style.overflow='visible';}});
- const pdf=new jsPDF({unit:'mm',format:'a4',compress:true});pdf.setProperties({title:'فاتورة القهوة الملكية '+invoiceNumber,author:'القهوة الملكية'});
+ const pdf=new jsPDF({unit:'mm',format:'a4',compress:true});pdf.setProperties({title:(invoiceNumber.startsWith('QT-')?'عرض سعر القهوة الملكية ':'فاتورة القهوة الملكية ')+invoiceNumber,author:'القهوة الملكية'});
  const ratio=canvas.width/rect.width;const maxHeight=Math.floor(canvas.width*277/190);let offset=0,page=0;
  while(offset<canvas.height){let end=Math.min(offset+maxHeight,canvas.height);for(const block of blocks){const top=Math.floor(block.top*ratio),bottom=Math.ceil(block.bottom*ratio);if(top>offset&&top<end&&bottom>end)end=top;}if(end<=offset)end=Math.min(offset+maxHeight,canvas.height);
  const slice=document.createElement('canvas');slice.width=canvas.width;slice.height=end-offset;const context=slice.getContext('2d');if(!context)throw Error('تعذر تجهيز الفاتورة');context.fillStyle='#fff';context.fillRect(0,0,slice.width,slice.height);context.drawImage(canvas,0,offset,canvas.width,slice.height,0,0,slice.width,slice.height);

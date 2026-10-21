@@ -34,7 +34,7 @@ export function InvoiceSheet({invoice,items,quantityLabel,cancellationNote}:{inv
    </tr>)}</tbody>
   </table>}
   <div className="invoice-totals royal-totals">
-   <>{discount>0&&<><div>السعر قبل الخصم (شامل الضريبة إن وجدت):<strong dir="ltr">{amount(invoice.basePrice??invoice.price)}</strong></div><div>الخصم ({invoice.discountRate}٪):<strong dir="ltr">− {amount(discount)}</strong></div></>}</><div>المجموع{invoice.taxRate?' قبل الضريبة':''}:<strong dir="ltr">{amount(net)}</strong></div>
+   <>{discount>0&&<><div>السعر قبل الخصم:<strong dir="ltr">{amount(invoice.basePrice??invoice.price)}</strong></div><div>الخصم ({invoice.discountRate}٪):<strong dir="ltr">− {amount(discount)}</strong></div></>}</><div>المجموع{invoice.taxRate?' قبل الضريبة':''}:<strong dir="ltr">{amount(net)}</strong></div>
    {!!invoice.taxRate&&<><div>الضريبة ({invoice.taxRate}٪):<strong dir="ltr">{amount(tax)}</strong></div><div>الإجمالي بعد الضريبة:<strong dir="ltr">{amount(invoice.price)}</strong></div></>}
    {!quote&&invoice.paid>0&&<div>الدفعة المستلمة:<strong dir="ltr">{amount(invoice.paid)}</strong></div>}
    {!quote&&invoice.price>invoice.paid&&<div className="balance">المتبقي:<strong dir="ltr">{amount(invoice.price-invoice.paid)}</strong></div>}

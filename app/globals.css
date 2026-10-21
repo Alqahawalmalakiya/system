@@ -47,3 +47,10 @@
 .quote-conversion p{margin-bottom:12px;line-height:1.8}
 .badge.quote{background:#f2e9d8;color:#86623e}
 @media(max-width:760px){.app aside nav{overflow-x:auto}.app aside nav button{flex:0 0 auto;white-space:nowrap}}
+
+.time-field{border:0;padding:0;margin:0;min-width:0}.time-field legend{margin-bottom:8px;font-weight:500}
+.time-controls{display:flex;gap:6px;flex-wrap:wrap}.time-controls select{flex:1;min-width:65px;padding:10px 4px}.time-controls button{padding:8px}
+.invoice-group{padding:16px;margin-bottom:16px;background:#f8f2e8;border:1px solid #dbc8a9;border-radius:9px}
+.invoice-group button{margin:5px;padding:10px;border:1px solid #dbc8a9;border-radius:6px}.invoice-group .chosen{background:#60412c;color:white}
+.invoice-group p{line-height:1.8;margin:8px 0}.invoice-sheet+.invoice-sheet{margin-top:24px}
+@media print{.invoice-sheet+.invoice-sheet{break-before:page;margin-top:0}}

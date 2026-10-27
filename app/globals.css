@@ -54,3 +54,11 @@
 .invoice-group button{margin:5px;padding:10px;border:1px solid #dbc8a9;border-radius:6px}.invoice-group .chosen{background:#60412c;color:white}
 .invoice-group p{line-height:1.8;margin:8px 0}.invoice-sheet+.invoice-sheet{margin-top:24px}
 @media print{.invoice-sheet+.invoice-sheet{break-before:page;margin-top:0}}
+.royal-invoice,.royal-invoice *{font-weight:700!important}
+nav button .pending-quotes-count{display:inline-flex!important;align-items:center;justify-content:center;min-width:22px;min-height:22px;background:#9c4423;color:white;border-radius:20px;font-weight:700;margin-inline-start:auto}
+.balance-group-summary{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-bottom:24px}
+.balance-group-summary>div{display:grid;gap:6px;padding:14px;border:1px solid #e6e0d6;border-radius:10px;background:#faf8f3}
+.balance-group-summary span{font-size:12px}.balance-group-summary strong{font-size:20px}.balance-group-summary small{color:#69736a}
+.balance-group{margin-bottom:24px}.balance-group>h3{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;margin-bottom:12px;font-size:16px}.balance-group>h3>span{font-size:14px;color:#7d5638}
+.balance-group-past>h3{color:#7d5638}.balance-group-today>h3{color:#244c40}
+@media(max-width:420px){.balance-group-summary>div{padding:10px}.balance-group-summary strong{font-size:16px}nav button .pending-quotes-count{min-width:18px;min-height:18px;padding:1px 5px;font-size:10px}}

@@ -12,11 +12,13 @@ export async function POST(req:Request){
  const current=(await getDb().select().from(bookings).where(eq(bookings.id,body.id)))[0];
  if(!current)return Response.json({error:'عرض السعر غير موجود'},{status:404});
  if(current.documentType!=='quote')return Response.json(current,{headers:{'Cache-Control':'no-store'}});
+ if(current.status==='cancelled')return Response.json({error:'أعد العرض الملغى إلى المعلّق قبل تحويله إلى فاتورة'},{status:409});
  // D1 executes the batch atomically. The unique booking ID makes retries safe.
  await env.DB.batch([
-  env.DB.prepare("INSERT OR IGNORE INTO invoice_numbers (booking_id) SELECT id FROM bookings WHERE id=? AND document_type='quote'").bind(body.id),
-  env.DB.prepare("UPDATE bookings SET invoice=printf('%04d',(SELECT id+215 FROM invoice_numbers WHERE booking_id=bookings.id)),document_type='invoice',status='confirmed',created_at=? WHERE id=? AND document_type='quote'").bind(new Date().toISOString(),body.id)
+  env.DB.prepare("INSERT OR IGNORE INTO invoice_numbers (booking_id) SELECT id FROM bookings WHERE id=? AND document_type='quote' AND status='confirmed'").bind(body.id),
+  env.DB.prepare("UPDATE bookings SET invoice=printf('%04d',(SELECT id+215 FROM invoice_numbers WHERE booking_id=bookings.id)),document_type='invoice',status='confirmed',created_at=? WHERE id=? AND document_type='quote' AND status='confirmed'").bind(new Date().toISOString(),body.id)
  ]);
  const converted=(await getDb().select().from(bookings).where(eq(bookings.id,body.id)))[0];
+ if(converted?.documentType==='quote')return Response.json({error:'تغيّرت حالة العرض؛ حدّث الصفحة ثم حاول مجددًا'},{status:409});
  return Response.json(converted,{headers:{'Cache-Control':'no-store'}});
 }

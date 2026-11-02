@@ -1,4 +1,5 @@
-export const defaultFoods=[
+import {orderFoodCatalog} from './food-catalog.mjs';
+export const defaultFoods=orderFoodCatalog([
  {name:'عريكة',price:15000},
  {name:'عصيدة',price:13000},
  {name:'مشغوثة',price:15000},
@@ -9,8 +10,7 @@ export const defaultFoods=[
  {name:'فتة تمر',price:17000},
  {name:'مرسى',price:15000},
  {name:'فتة حليب',price:16000},
- {name:'جريش أحمر',price:17000},
- {name:'جريش أبيض',price:17000},
+ {name:'جريش',price:17000},
  {name:'مرقوق باللحم',price:20000},
  {name:'بنت الصحن',price:10000},
  {name:'صحن مشكل مخبوزات',price:16000},
@@ -21,4 +21,4 @@ export const defaultFoods=[
  {name:'سمن',price:11000},
  {name:'عسل',price:15000},
  {name:'نفر لحم',price:10000},
-];
+]);

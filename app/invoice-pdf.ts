@@ -9,9 +9,21 @@ export async function createInvoicePdf(element:HTMLElement|HTMLElement[],invoice
  const clone=source.cloneNode(true) as HTMLElement;clone.classList.add('pdf-export-sheet');wrapper.appendChild(clone);document.body.appendChild(wrapper);
  try{
  await Promise.all(Array.from(clone.querySelectorAll('img')).map(async img=>{if(img.complete&&img.naturalWidth)return;await img.decode()}));
+ // Only tighten excess whitespace when a normal invoice would overflow A4.
+ // Keep long descriptions/large statements paginated instead of clipping them.
+ const rowCount=clone.querySelectorAll('.royal-table tbody tr').length;
+ const regularInvoice=!clone.classList.contains('food-statement');
+ const pageHeight=794*277/190;
+ if(regularInvoice&&rowCount<=10&&clone.getBoundingClientRect().height>pageHeight)clone.classList.add('pdf-compact-sheet');
  const rect=clone.getBoundingClientRect();
  const blocks=Array.from(clone.querySelectorAll('tr,.invoice-totals,.invoice-meta,.cancellation-note,.royal-footer')).map(e=>{const r=e.getBoundingClientRect();return {top:r.top-rect.top,bottom:r.bottom-rect.top}});
  const canvas=await html2canvas(clone,{scale:2,backgroundColor:'#ffffff',useCORS:true,logging:false,windowWidth:1100,scrollX:0,scrollY:0,onclone(doc){doc.documentElement.style.overflow='visible';doc.body.style.overflow='visible';}});
+ const fit=Math.min(1,(canvas.width*277/190)/canvas.height);
+ if(regularInvoice&&rowCount<=10&&fit>=0.88){
+  const width=190*fit,height=canvas.height*width/canvas.width;
+  if(page++)pdf.addPage();pdf.addImage(canvas.toDataURL('image/jpeg',0.97),'JPEG',(210-width)/2,10,width,height);
+  continue;
+ }
  
  const ratio=canvas.width/rect.width;const maxHeight=Math.floor(canvas.width*277/190);let offset=0;
  while(offset<canvas.height){let end=Math.min(offset+maxHeight,canvas.height);for(const block of blocks){const top=Math.floor(block.top*ratio),bottom=Math.ceil(block.bottom*ratio);if(top>offset&&top<end&&bottom>end)end=top;}if(end<=offset)end=Math.min(offset+maxHeight,canvas.height);

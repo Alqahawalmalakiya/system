@@ -1,9 +1,9 @@
 'use client';
-export async function createInvoicePdf(element:HTMLElement|HTMLElement[],invoiceNumber:string){
+export async function createInvoicePdf(element:HTMLElement|HTMLElement[],invoiceNumber:string,existingPdf?:import('jspdf').jsPDF){
  const [{default:html2canvas},{jsPDF}]=await Promise.all([import('html2canvas'),import('jspdf')]);
  await document.fonts.load('500 16px RoyalInvoiceArabic');await document.fonts.load('700 16px RoyalInvoiceArabic');await document.fonts.ready;
- const pdf=new jsPDF({unit:'mm',format:'a4',compress:true});pdf.setProperties({title:'فواتير القهوة الملكية '+invoiceNumber,author:'القهوة الملكية'});
- let page=0;
+ const pdf=existingPdf||new jsPDF({unit:'mm',format:'a4',compress:true});pdf.setProperties({title:'فواتير القهوة الملكية '+invoiceNumber,author:'القهوة الملكية'});
+ let page=existingPdf?existingPdf.getNumberOfPages():0;
  for(const source of (Array.isArray(element)?element:[element])){
  const wrapper=document.createElement('div');wrapper.style.cssText='position:fixed;left:-10000px;top:0;width:794px;background:white;pointer-events:none;';
  const clone=source.cloneNode(true) as HTMLElement;clone.classList.add('pdf-export-sheet');wrapper.appendChild(clone);document.body.appendChild(wrapper);

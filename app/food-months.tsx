@@ -1,11 +1,12 @@
 'use client';
 import {useRef,useState} from 'react';
+import {OctoberFoodImport} from './october-food-import';
 import type {InvoiceDocument as Invoice} from './invoice-sheet';
 import {foodStatement,isFoodInvoice,monthInvoices} from '../lib/food-months.mjs';
 const money=(n:number)=>new Intl.NumberFormat('ar-SA',{minimumFractionDigits:2,maximumFractionDigits:2}).format(n/100)+' ر.س';
 const monthTitle=(month:string)=>new Intl.DateTimeFormat('ar-SA-u-ca-gregory',{month:'long',year:'numeric'}).format(new Date(month+'-01T12:00:00+03:00'));
-type Props={rows:Invoice[];loading:boolean;onCreate:(date:string)=>void;onOpen:(invoice:Invoice)=>void};
-export function FoodMonths({rows,loading,onCreate,onOpen}:Props){
+type Props={rows:Invoice[];loading:boolean;onCreate:(date:string)=>void;onOpen:(invoice:Invoice)=>void;onImported:()=>Promise<void>};
+export function FoodMonths({rows,loading,onCreate,onOpen,onImported}:Props){
  const now=new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Riyadh',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
  const [month,setMonth]=useState(now.slice(0,7)),[includeCancelled,setIncludeCancelled]=useState(false),[selected,setSelected]=useState<string[]>([]),[busy,setBusy]=useState(false),[progress,setProgress]=useState(''),[error,setError]=useState('');
  const exportLock=useRef(false);
@@ -28,6 +29,7 @@ export function FoodMonths({rows,loading,onCreate,onOpen}:Props){
  return <section className="food-months" aria-labelledby="food-months-title" aria-busy={busy}>
   <div className="food-months-heading"><div><h2 id="food-months-title">ملف فواتير المأكولات الشهري</h2><p>اختر شهرًا وابدأ إضافة فواتيره. تحفظ الفواتير في النظام وتظهر هنا تلقائيًا حسب تاريخ المناسبة.</p></div><label>الشهر<input type="month" required value={month} disabled={busy} onChange={e=>changeMonth(e.target.value)}/></label></div>
   <div className="food-month-links" aria-label="الشهور المحفوظة">{months.map(value=><button key={value} disabled={busy} aria-pressed={month===value} className={month===value?'chosen':''} onClick={()=>changeMonth(value)}>{monthTitle(value)}</button>)}</div>
+  {month==='2026-10'&&<OctoberFoodImport onImported={onImported}/>}
   {validMonth?<><div className="food-month-stats"><strong>{monthTitle(month)}</strong><span>{invoices.length} فاتورة</span><span>{summary.workDays} أيام عمل</span><span>الإجمالي: {money(summary.price)}</span></div>
   <label className="food-month-cancelled"><input type="checkbox" checked={includeCancelled} disabled={busy} onChange={e=>{setIncludeCancelled(e.target.checked);setSelected([])}}/>تضمين الفواتير الملغاة في القائمة والتحميل والبيان</label>
   <div className="food-month-actions"><button className="primary" disabled={busy||loading} onClick={()=>onCreate(month===now.slice(0,7)?now:month+'-01')}>إضافة فاتورة إلى {monthTitle(month)}</button><button disabled={busy||loading||!invoices.length} onClick={()=>exportFiles('all')}>تحميل جماعي PDF + بيان</button><button disabled={busy||loading||!invoices.length} onClick={()=>exportFiles('zip')}>تحميل ZIP حسب اليوم + بيان</button><button disabled={busy||loading||!chosen.length} onClick={()=>exportFiles('selected')}>تحميل المحدد فقط ({chosen.length}) بدون بيان</button></div>

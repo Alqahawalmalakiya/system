@@ -1,0 +1,1213 @@
+[
+  {
+    "page": 1,
+    "sourceInvoice": "0221",
+    "customer": "قاعة الدار البيضاء",
+    "date": "2026-10-01",
+    "items": [
+      {
+        "item": "خبز ملة",
+        "description": "",
+        "quantity": 2,
+        "unitPrice": 10000,
+        "amount": 20000
+      },
+      {
+        "item": "عصيدة",
+        "description": "",
+        "quantity": 1,
+        "unitPrice": 13000,
+        "amount": 13000
+      },
+      {
+        "item": "عريكة",
+        "description": "",
+        "quantity": 1,
+        "unitPrice": 15000,
+        "amount": 15000
+      },
+      {
+        "item": "سمن",
+        "description": "",
+        "quantity": 0.5,
+        "unitPrice": 11000,
+        "amount": 5500
+      },
+      {
+        "item": "عسل",
+        "description": "",
+        "quantity": 0.5,
+        "unitPrice": 15000,
+        "amount": 7500
+      }
+    ],
+    "net": 61000,
+    "price": 70150,
+    "paid": 70150
+  },
+  {
+    "page": 2,
+    "sourceInvoice": "0222",
+    "customer": "قاعة السلطان",
+    "date": "2026-10-01",
+    "items": [
+      {
+        "item": "خبز ملة",
+        "description": "",
+        "quantity": 2,
+        "unitPrice": 10000,
+        "amount": 20000
+      },
+      {
+        "item": "عصيدة",
+        "description": "",
+        "quantity": 1,
+        "unitPrice": 13000,
+        "amount": 13000
+      },
+      {
+        "item": "عريكة",
+        "description": "",
+        "quantity": 1,
+        "unitPrice": 15000,
+        "amount": 15000
+      },
+      {
+        "item": "سمن",
+        "description": "",
+        "quantity": 0.5,
+        "unitPrice": 11000,
+        "amount": 5500
+      },
+      {
+        "item": "عسل",
+        "description": "",
+        "quantity": 0.5,
+        "unitPrice": 15000,
+        "amount": 7500
+      }
+    ],
+    "net": 61000,
+    "price": 70150,
+    "paid": 70150
+  },
+  {
+    "page": 3,
+    "sourceInvoice": "0225",
+    "customer": "قاعة الدار البيضاء",
+    "date": "2026-10-02",
+    "items": [
+      {
+        "item": "خبز ملة",
+        "description": "",
+        "quantity": 2,
+        "unitPrice": 10000,
+        "amount": 20000
+      },
+      {
+        "item": "عصيدة",
+        "description": "",
+        "quantity": 1,
+        "unitPrice": 13000,
+        "amount": 13000
+      },
+      {
+        "item": "عريكة",
+        "description": "",
+        "quantity": 1,
+        "unitPrice": 15000,
+        "amount": 15000
+      },
+      {
+        "item": "سمن",
+        "description": "",
+        "quantity": 0.5,
+        "unitPrice": 11000,
+        "amount": 5500
+      },
+      {
+        "item": "عسل",
+        "description": "",
+        "quantity": 0.5,
+        "unitPrice": 15000,
+        "amount": 7500
+      }
+    ],
+    "net": 61000,
+    "price": 70150,
+    "paid": 70150
+  },
+  {
+    "page": 4,
+    "sourceInvoice": "0226",
+    "customer": "قاعة الاولى",
+    "date": "2026-10-02",
+    "items": [
+      {
+        "item": "خبز ملة",
+        "description": "",
+        "quantity": 2,
+        "unitPrice": 10000,
+        "amount": 20000
+      },
+      {
+        "item": "عريكة",
+        "description": "",
+        "quantity": 2,
+        "unitPrice": 15000,
+        "amount": 30000
+      },
+      {
+        "item": "سمن",
+        "description": "",
+        "quantity": 0.5,
+        "unitPrice": 11000,
+        "amount": 5500
+      },
+      {
+        "item": "عسل",
+        "description": "",
+        "quantity": 0.5,
+        "unitPrice": 15000,
+        "amount": 7500
+      }
+    ],
+    "net": 63000,
+    "price": 72450,
+    "paid": 72450
+  },
+  {
+    "page": 5,
+    "sourceInvoice": "0231",
+    "customer": "قاعة المشاعر",
+    "date": "2026-10-08",
+    "items": [
+      {
+        "item": "خبز ملة",
+        "description": "",
+        "quantity": 2,
+        "unitPrice": 10000,
+        "amount": 20000
+      },
+      {
+        "item": "عصيدة",
+        "description": "",
+        "quantity": 1,
+        "unitPrice": 13000,
+        "amount": 13000
+      },
+      {
+        "item": "عريكة",
+        "description": "",
+        "quantity": 1,
+        "unitPrice": 15000,
+        "amount": 15000
+      },
+      {
+        "item": "سمن",
+        "description": "",
+        "quantity": 0.5,
+        "unitPrice": 11000,
+        "amount": 5500
+      },
+      {
+        "item": "عسل",
+        "description": "",
+        "quantity": 0.5,
+        "unitPrice": 15000,
+        "amount": 7500
+      }
+    ],
+    "net": 61000,
+    "price": 70150,
+    "paid": 70150
+  },
+  {
+    "page": 6,
+    "sourceInvoice": "0232",
+    "customer": "قاعة لوسيل",
+    "date": "2026-10-08",
+    "items": [
+      {
+        "item": "خبز ملة",
+        "description": "",
+        "quantity": 2,
+        "unitPrice": 10000,
+        "amount": 20000
+      },
+      {
+        "item": "عريكة",
+        "description": "",
+        "quantity": 2,
+        "unitPrice": 15000,
+        "amount": 30000
+      },
+      {
+        "item": "سمن",
+        "description": "",
+        "quantity": 0.5,
+        "unitPrice": 11000,
+        "amount": 5500
+      },
+      {
+        "item": "عسل",
+        "description": "",
+        "quantity": 0.5,
+        "unitPrice": 15000,
+        "amount": 7500
+      }
+    ],
+    "net": 63000,
+    "price": 72450,
+    "paid": 72450
+  },
+  {
+    "page": 7,
+    "sourceInvoice": "0233",
+    "customer": "قاعة لوسيل",
+    "date": "2026-10-09",
+    "items": [
+      {
+        "item": "خبز ملة",
+        "description": "",
+        "quantity": 2,
+        "unitPrice": 10000,
+        "amount": 20000
+      },
+      {
+        "item": "عريكة",
+        "description": "",
+        "quantity": 2,
+        "unitPrice": 15000,
+        "amount": 30000
+      },
+      {
+        "item": "سمن",
+        "description": "",
+        "quantity": 0.5,
+        "unitPrice": 11000,
+        "amount": 5500
+      },
+      {
+        "item": "عسل",
+        "description": "",
+        "quantity": 0.5,
+        "unitPrice": 15000,
+        "amount": 7500
+      }
+    ],
+    "net": 63000,
+    "price": 72450,
+    "paid": 72450
+  },
+  {
+    "page": 8,
+    "sourceInvoice": "0234",
+    "customer": "قاعة سمايا",
+    "date": "2026-10-09",
+    "items": [
+      {
+        "item": "خبز ملة",
+        "description": "",
+        "quantity": 2,
+        "unitPrice": 10000,
+        "amount": 20000
+      },
+      {
+        "item": "عريكة",
+        "description": "",
+        "quantity": 2,
+        "unitPrice": 15000,
+        "amount": 30000
+      },
+      {
+        "item": "سمن",
+        "description": "",
+        "quantity": 0.5,
+        "unitPrice": 11000,
+        "amount": 5500
+      },
+      {
+        "item": "عسل",
+        "description": "",
+        "quantity": 0.5,
+        "unitPrice": 15000,
+        "amount": 7500
+      }
+    ],
+    "net": 63000,
+    "price": 72450,
+    "paid": 72450
+  },
+  {
+    "page": 9,
+    "sourceInvoice": "0235",
+    "customer": "قاعة الاولى",
+    "date": "2026-10-09",
+    "items": [
+      {
+        "item": "خبز ملة",
+        "description": "",
+        "quantity": 2,
+        "unitPrice": 10000,
+        "amount": 20000
+      },
+      {
+        "item": "عصيدة",
+        "description": "",
+        "quantity": 1,
+        "unitPrice": 13000,
+        "amount": 13000
+      },
+      {
+        "item": "عريكة",
+        "description": "",
+        "quantity": 1,
+        "unitPrice": 15000,
+        "amount": 15000
+      },
+      {
+        "item": "سمن",
+        "description": "",
+        "quantity": 0.5,
+        "unitPrice": 11000,
+        "amount": 5500
+      },
+      {
+        "item": "عسل",
+        "description": "",
+        "quantity": 0.5,
+        "unitPrice": 15000,
+        "amount": 7500
+      }
+    ],
+    "net": 61000,
+    "price": 70150,
+    "paid": 70150
+  },
+  {
+    "page": 10,
+    "sourceInvoice": "0235",
+    "customer": "قاعة لوسيل",
+    "date": "2026-10-15",
+    "items": [
+      {
+        "item": "خبز ملة",
+        "description": "",
+        "quantity": 2,
+        "unitPrice": 10000,
+        "amount": 20000
+      },
+      {
+        "item": "عريكة",
+        "description": "",
+        "quantity": 2,
+        "unitPrice": 15000,
+        "amount": 30000
+      },
+      {
+        "item": "سمن",
+        "description": "",
+        "quantity": 0.5,
+        "unitPrice": 11000,
+        "amount": 5500
+      },
+      {
+        "item": "عسل",
+        "description": "",
+        "quantity": 0.5,
+        "unitPrice": 15000,
+        "amount": 7500
+      }
+    ],
+    "net": 63000,
+    "price": 72450,
+    "paid": 72450
+  },
+  {
+    "page": 11,
+    "sourceInvoice": "0236",
+    "customer": "قاعة مشاعر",
+    "date": "2026-10-15",
+    "items": [
+      {
+        "item": "خبز ملة",
+        "description": "",
+        "quantity": 2,
+        "unitPrice": 10000,
+        "amount": 20000
+      },
+      {
+        "item": "عصيدة",
+        "description": "",
+        "quantity": 1,
+        "unitPrice": 13000,
+        "amount": 13000
+      },
+      {
+        "item": "عريكة",
+        "description": "",
+        "quantity": 1,
+        "unitPrice": 15000,
+        "amount": 15000
+      },
+      {
+        "item": "سمن",
+        "description": "",
+        "quantity": 0.5,
+        "unitPrice": 11000,
+        "amount": 5500
+      },
+      {
+        "item": "عسل",
+        "description": "",
+        "quantity": 0.5,
+        "unitPrice": 15000,
+        "amount": 7500
+      }
+    ],
+    "net": 61000,
+    "price": 70150,
+    "paid": 70150
+  },
+  {
+    "page": 12,
+    "sourceInvoice": "0237",
+    "customer": "قاعة فرح",
+    "date": "2026-10-15",
+    "items": [
+      {
+        "item": "خبز ملة",
+        "description": "",
+        "quantity": 2,
+        "unitPrice": 10000,
+        "amount": 20000
+      },
+      {
+        "item": "عريكة",
+        "description": "",
+        "quantity": 2,
+        "unitPrice": 15000,
+        "amount": 30000
+      },
+      {
+        "item": "مراصيع",
+        "description": "",
+        "quantity": 1,
+        "unitPrice": 14000,
+        "amount": 14000
+      },
+      {
+        "item": "عصيدة",
+        "description": "",
+        "quantity": 1,
+        "unitPrice": 13000,
+        "amount": 13000
+      },
+      {
+        "item": "سمن",
+        "description": "",
+        "quantity": 0.5,
+        "unitPrice": 11000,
+        "amount": 5500
+      },
+      {
+        "item": "عسل",
+        "description": "",
+        "quantity": 0.5,
+        "unitPrice": 15000,
+        "amount": 7500
+      }
+    ],
+    "net": 90000,
+    "price": 103500,
+    "paid": 103500
+  },
+  {
+    "page": 13,
+    "sourceInvoice": "0238",
+    "customer": "قاعة الاولى",
+    "date": "2026-10-15",
+    "items": [
+      {
+        "item": "خبز ملة",
+        "description": "",
+        "quantity": 2,
+        "unitPrice": 10000,
+        "amount": 20000
+      },
+      {
+        "item": "عريكة",
+        "description": "",
+        "quantity": 2,
+        "unitPrice": 15000,
+        "amount": 30000
+      },
+      {
+        "item": "سمن",
+        "description": "",
+        "quantity": 0.5,
+        "unitPrice": 11000,
+        "amount": 5500
+      },
+      {
+        "item": "عسل",
+        "description": "",
+        "quantity": 0.5,
+        "unitPrice": 15000,
+        "amount": 7500
+      }
+    ],
+    "net": 63000,
+    "price": 72450,
+    "paid": 72450
+  },
+  {
+    "page": 14,
+    "sourceInvoice": "0239",
+    "customer": "قاعة طيبة",
+    "date": "2026-10-16",
+    "items": [
+      {
+        "item": "خبز ملة",
+        "description": "",
+        "quantity": 2,
+        "unitPrice": 10000,
+        "amount": 20000
+      },
+      {
+        "item": "مراصيع",
+        "description": "",
+        "quantity": 1,
+        "unitPrice": 14000,
+        "amount": 14000
+      },
+      {
+        "item": "عريكة",
+        "description": "",
+        "quantity": 1,
+        "unitPrice": 15000,
+        "amount": 15000
+      },
+      {
+        "item": "جريش",
+        "description": "",
+        "quantity": 1,
+        "unitPrice": 17000,
+        "amount": 17000
+      },
+      {
+        "item": "سمن",
+        "description": "",
+        "quantity": 0.5,
+        "unitPrice": 11000,
+        "amount": 5500
+      },
+      {
+        "item": "عسل",
+        "description": "",
+        "quantity": 0.5,
+        "unitPrice": 15000,
+        "amount": 7500
+      }
+    ],
+    "net": 79000,
+    "price": 90850,
+    "paid": 90850
+  },
+  {
+    "page": 15,
+    "sourceInvoice": "0240",
+    "customer": "قاعة الدار البيضاء",
+    "date": "2026-10-16",
+    "items": [
+      {
+        "item": "خبز ملة",
+        "description": "",
+        "quantity": 2,
+        "unitPrice": 10000,
+        "amount": 20000
+      },
+      {
+        "item": "عصيدة",
+        "description": "",
+        "quantity": 1,
+        "unitPrice": 13000,
+        "amount": 13000
+      },
+      {
+        "item": "عريكة",
+        "description": "",
+        "quantity": 1,
+        "unitPrice": 15000,
+        "amount": 15000
+      },
+      {
+        "item": "سمن",
+        "description": "",
+        "quantity": 1,
+        "unitPrice": 11000,
+        "amount": 11000
+      },
+      {
+        "item": "عسل",
+        "description": "",
+        "quantity": 1,
+        "unitPrice": 15000,
+        "amount": 15000
+      }
+    ],
+    "net": 74000,
+    "price": 85100,
+    "paid": 85100
+  },
+  {
+    "page": 16,
+    "sourceInvoice": "0241",
+    "customer": "قاعة لوسيل",
+    "date": "2026-10-16",
+    "items": [
+      {
+        "item": "خبز ملة",
+        "description": "",
+        "quantity": 2,
+        "unitPrice": 10000,
+        "amount": 20000
+      },
+      {
+        "item": "عريكة",
+        "description": "",
+        "quantity": 2,
+        "unitPrice": 15000,
+        "amount": 30000
+      },
+      {
+        "item": "سمن",
+        "description": "",
+        "quantity": 0.5,
+        "unitPrice": 11000,
+        "amount": 5500
+      },
+      {
+        "item": "عسل",
+        "description": "",
+        "quantity": 0.5,
+        "unitPrice": 15000,
+        "amount": 7500
+      }
+    ],
+    "net": 63000,
+    "price": 72450,
+    "paid": 72450
+  },
+  {
+    "page": 17,
+    "sourceInvoice": "0242",
+    "customer": "قاعة الاولى",
+    "date": "2026-10-16",
+    "items": [
+      {
+        "item": "خبز ملة",
+        "description": "",
+        "quantity": 2,
+        "unitPrice": 10000,
+        "amount": 20000
+      },
+      {
+        "item": "عريكة",
+        "description": "",
+        "quantity": 2,
+        "unitPrice": 15000,
+        "amount": 30000
+      },
+      {
+        "item": "سمن",
+        "description": "",
+        "quantity": 0.5,
+        "unitPrice": 11000,
+        "amount": 5500
+      },
+      {
+        "item": "عسل",
+        "description": "",
+        "quantity": 0.5,
+        "unitPrice": 15000,
+        "amount": 7500
+      }
+    ],
+    "net": 63000,
+    "price": 72450,
+    "paid": 72450
+  },
+  {
+    "page": 18,
+    "sourceInvoice": "0244",
+    "customer": "قاعة الدار البيضاء",
+    "date": "2026-10-17",
+    "items": [
+      {
+        "item": "خبز ملة",
+        "description": "",
+        "quantity": 3,
+        "unitPrice": 10000,
+        "amount": 30000
+      },
+      {
+        "item": "مصابيب",
+        "description": "",
+        "quantity": 2,
+        "unitPrice": 14000,
+        "amount": 28000
+      },
+      {
+        "item": "مفتوت",
+        "description": "",
+        "quantity": 1,
+        "unitPrice": 17000,
+        "amount": 17000
+      },
+      {
+        "item": "سمن",
+        "description": "",
+        "quantity": 1,
+        "unitPrice": 11000,
+        "amount": 11000
+      },
+      {
+        "item": "عسل",
+        "description": "",
+        "quantity": 1,
+        "unitPrice": 15000,
+        "amount": 15000
+      }
+    ],
+    "net": 101000,
+    "price": 116150,
+    "paid": 116150
+  },
+  {
+    "page": 19,
+    "sourceInvoice": "0245",
+    "customer": "قاعة المشاعر",
+    "date": "2026-10-23",
+    "items": [
+      {
+        "item": "خبز ملة",
+        "description": "",
+        "quantity": 2,
+        "unitPrice": 10000,
+        "amount": 20000
+      },
+      {
+        "item": "عصيدة",
+        "description": "",
+        "quantity": 1,
+        "unitPrice": 13000,
+        "amount": 13000
+      },
+      {
+        "item": "عريكة",
+        "description": "",
+        "quantity": 1,
+        "unitPrice": 15000,
+        "amount": 15000
+      },
+      {
+        "item": "مفتوت",
+        "description": "",
+        "quantity": 1,
+        "unitPrice": 17000,
+        "amount": 17000
+      },
+      {
+        "item": "مصابيب",
+        "description": "",
+        "quantity": 1,
+        "unitPrice": 14000,
+        "amount": 14000
+      },
+      {
+        "item": "سمن",
+        "description": "",
+        "quantity": 1,
+        "unitPrice": 11000,
+        "amount": 11000
+      },
+      {
+        "item": "عسل",
+        "description": "",
+        "quantity": 1,
+        "unitPrice": 15000,
+        "amount": 15000
+      }
+    ],
+    "net": 105000,
+    "price": 120750,
+    "paid": 120750
+  },
+  {
+    "page": 20,
+    "sourceInvoice": "0246",
+    "customer": "قاعة الاولى",
+    "date": "2026-10-23",
+    "items": [
+      {
+        "item": "خبز ملة",
+        "description": "",
+        "quantity": 2,
+        "unitPrice": 10000,
+        "amount": 20000
+      },
+      {
+        "item": "عريكة",
+        "description": "",
+        "quantity": 1,
+        "unitPrice": 15000,
+        "amount": 15000
+      },
+      {
+        "item": "عصيدة",
+        "description": "",
+        "quantity": 1,
+        "unitPrice": 13000,
+        "amount": 13000
+      },
+      {
+        "item": "سمن",
+        "description": "",
+        "quantity": 0.5,
+        "unitPrice": 11000,
+        "amount": 5500
+      },
+      {
+        "item": "عسل",
+        "description": "",
+        "quantity": 0.5,
+        "unitPrice": 15000,
+        "amount": 7500
+      }
+    ],
+    "net": 61000,
+    "price": 70150,
+    "paid": 70150
+  },
+  {
+    "page": 21,
+    "sourceInvoice": "0247",
+    "customer": "قاعة الاولى",
+    "date": "2026-10-28",
+    "items": [
+      {
+        "item": "ميني ملة محشية بالجبن أو التمر",
+        "description": "",
+        "quantity": 270,
+        "unitPrice": 350,
+        "amount": 94500
+      }
+    ],
+    "net": 94500,
+    "price": 108675,
+    "paid": 108675
+  },
+  {
+    "page": 22,
+    "sourceInvoice": "0248",
+    "customer": "قاعة الدار البيضاء",
+    "date": "2026-10-28",
+    "items": [
+      {
+        "item": "خبز ملة",
+        "description": "",
+        "quantity": 2,
+        "unitPrice": 10000,
+        "amount": 20000
+      },
+      {
+        "item": "عريكة",
+        "description": "",
+        "quantity": 1,
+        "unitPrice": 15000,
+        "amount": 15000
+      },
+      {
+        "item": "عصيدة",
+        "description": "",
+        "quantity": 1,
+        "unitPrice": 13000,
+        "amount": 13000
+      },
+      {
+        "item": "سمن",
+        "description": "",
+        "quantity": 0.5,
+        "unitPrice": 11000,
+        "amount": 5500
+      },
+      {
+        "item": "عسل",
+        "description": "",
+        "quantity": 0.5,
+        "unitPrice": 15000,
+        "amount": 7500
+      }
+    ],
+    "net": 61000,
+    "price": 70150,
+    "paid": 70150
+  },
+  {
+    "page": 23,
+    "sourceInvoice": "0249",
+    "customer": "قاعة طيبة",
+    "date": "2026-10-29",
+    "items": [
+      {
+        "item": "خبز ملة",
+        "description": "",
+        "quantity": 2,
+        "unitPrice": 10000,
+        "amount": 20000
+      },
+      {
+        "item": "عريكة",
+        "description": "",
+        "quantity": 1,
+        "unitPrice": 15000,
+        "amount": 15000
+      },
+      {
+        "item": "مراصيع",
+        "description": "",
+        "quantity": 1,
+        "unitPrice": 14000,
+        "amount": 14000
+      },
+      {
+        "item": "جريش",
+        "description": "",
+        "quantity": 1,
+        "unitPrice": 17000,
+        "amount": 17000
+      },
+      {
+        "item": "سمن",
+        "description": "",
+        "quantity": 0.5,
+        "unitPrice": 11000,
+        "amount": 5500
+      },
+      {
+        "item": "عسل",
+        "description": "",
+        "quantity": 0.5,
+        "unitPrice": 15000,
+        "amount": 7500
+      }
+    ],
+    "net": 79000,
+    "price": 90850,
+    "paid": 90850
+  },
+  {
+    "page": 24,
+    "sourceInvoice": "0250",
+    "customer": "قاعة السلطان",
+    "date": "2026-10-30",
+    "items": [
+      {
+        "item": "خبز ملة",
+        "description": "",
+        "quantity": 2,
+        "unitPrice": 10000,
+        "amount": 20000
+      },
+      {
+        "item": "عريكة",
+        "description": "",
+        "quantity": 1,
+        "unitPrice": 15000,
+        "amount": 15000
+      },
+      {
+        "item": "عصيدة",
+        "description": "",
+        "quantity": 1,
+        "unitPrice": 13000,
+        "amount": 13000
+      },
+      {
+        "item": "سمن",
+        "description": "",
+        "quantity": 0.5,
+        "unitPrice": 11000,
+        "amount": 5500
+      },
+      {
+        "item": "عسل",
+        "description": "",
+        "quantity": 0.5,
+        "unitPrice": 15000,
+        "amount": 7500
+      }
+    ],
+    "net": 61000,
+    "price": 70150,
+    "paid": 70150
+  },
+  {
+    "page": 25,
+    "sourceInvoice": "0251",
+    "customer": "قاعة الاولى",
+    "date": "2026-10-30",
+    "items": [
+      {
+        "item": "خبز ملة",
+        "description": "",
+        "quantity": 2,
+        "unitPrice": 10000,
+        "amount": 20000
+      },
+      {
+        "item": "عريكة",
+        "description": "",
+        "quantity": 1,
+        "unitPrice": 15000,
+        "amount": 15000
+      },
+      {
+        "item": "عصيدة",
+        "description": "",
+        "quantity": 1,
+        "unitPrice": 13000,
+        "amount": 13000
+      },
+      {
+        "item": "سمن",
+        "description": "",
+        "quantity": 0.5,
+        "unitPrice": 11000,
+        "amount": 5500
+      },
+      {
+        "item": "عسل",
+        "description": "",
+        "quantity": 0.5,
+        "unitPrice": 15000,
+        "amount": 7500
+      }
+    ],
+    "net": 61000,
+    "price": 70150,
+    "paid": 70150
+  },
+  {
+    "page": 26,
+    "sourceInvoice": "0252",
+    "customer": "قاعة لوسيل",
+    "date": "2026-10-30",
+    "items": [
+      {
+        "item": "خبز ملة",
+        "description": "",
+        "quantity": 2,
+        "unitPrice": 10000,
+        "amount": 20000
+      },
+      {
+        "item": "عريكة",
+        "description": "",
+        "quantity": 2,
+        "unitPrice": 15000,
+        "amount": 30000
+      },
+      {
+        "item": "سمن",
+        "description": "",
+        "quantity": 0.5,
+        "unitPrice": 11000,
+        "amount": 5500
+      },
+      {
+        "item": "عسل",
+        "description": "",
+        "quantity": 0.5,
+        "unitPrice": 15000,
+        "amount": 7500
+      }
+    ],
+    "net": 63000,
+    "price": 72450,
+    "paid": 72450
+  },
+  {
+    "page": 27,
+    "sourceInvoice": "0253",
+    "customer": "قاعة الدار البيضاء",
+    "date": "2026-10-30",
+    "items": [
+      {
+        "item": "خبز ملة",
+        "description": "",
+        "quantity": 2,
+        "unitPrice": 10000,
+        "amount": 20000
+      },
+      {
+        "item": "سمن",
+        "description": "",
+        "quantity": 0.5,
+        "unitPrice": 11000,
+        "amount": 5500
+      },
+      {
+        "item": "عسل",
+        "description": "",
+        "quantity": 0.5,
+        "unitPrice": 15000,
+        "amount": 7500
+      }
+    ],
+    "net": 33000,
+    "price": 37950,
+    "paid": 37950
+  },
+  {
+    "page": 28,
+    "sourceInvoice": "0254",
+    "customer": "قاعة لوسيل",
+    "date": "2026-10-31",
+    "items": [
+      {
+        "item": "خبز ملة",
+        "description": "",
+        "quantity": 2,
+        "unitPrice": 10000,
+        "amount": 20000
+      },
+      {
+        "item": "عريكة",
+        "description": "",
+        "quantity": 2,
+        "unitPrice": 15000,
+        "amount": 30000
+      },
+      {
+        "item": "سمن",
+        "description": "",
+        "quantity": 0.5,
+        "unitPrice": 11000,
+        "amount": 5500
+      },
+      {
+        "item": "عسل",
+        "description": "",
+        "quantity": 0.5,
+        "unitPrice": 15000,
+        "amount": 7500
+      }
+    ],
+    "net": 63000,
+    "price": 72450,
+    "paid": 72450
+  }
+]

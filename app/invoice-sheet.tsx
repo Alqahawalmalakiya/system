@@ -18,7 +18,7 @@ export function InvoiceSheet({invoice,items,quantityLabel,cancellationNote}:{inv
    <span>{quote?'رقم عرض السعر':'رقم الفاتورة'}: <b dir="ltr">{invoice.invoice}</b></span>
    {hasText(invoice.customer)&&<span>العميل: {invoice.customer}</span>}
    {hasText(invoice.phone)&&<span>رقم الجوال: <b dir="ltr">{invoice.phone}</b></span>}
-   {hasText(invoice.createdAt)&&<span>تاريخ الإصدار: {new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Riyadh',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date(invoice.createdAt))}</span>}
+   {!food&&hasText(invoice.createdAt)&&<span>تاريخ الإصدار: {new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Riyadh',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date(invoice.createdAt))}</span>}
    {hasText(invoice.occasion)&&<span>المناسبة: {invoice.occasion}</span>}
    {hasText(invoice.date)&&<span>موعد المناسبة: {invoice.date}{hasText(invoice.time)?' — '+timeRange(invoice.time,invoice.endTime):''}</span>}
    {!hasText(invoice.date)&&hasText(invoice.time)&&<span>الوقت: {timeRange(invoice.time,invoice.endTime)}</span>}

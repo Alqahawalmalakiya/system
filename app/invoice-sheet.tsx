@@ -1,6 +1,6 @@
 import {totals,timeRange} from '../lib/invoice-values.mjs';
 export type InvoiceItem={item:string;description:string;amount:number;quantity?:number;unitPrice?:number;showPrice?:boolean};
-export type InvoiceDocument={endTime?:string;discountRate?:number;basePrice?:number|null;invoiceGroup?:string;documentType?:string;quoteNumber?:string;mode?:string;items?:string;taxRate?:number;id:string;invoice:string;customer:string;phone:string;occasion:string;date:string;time:string;place:string;price:number;paid:number;notes:string;status:string;createdAt:string};
+export type InvoiceDocument={accounted?:boolean;endTime?:string;discountRate?:number;basePrice?:number|null;invoiceGroup?:string;documentType?:string;quoteNumber?:string;mode?:string;items?:string;taxRate?:number;id:string;invoice:string;customer:string;phone:string;occasion:string;date:string;time:string;place:string;price:number;paid:number;notes:string;status:string;createdAt:string};
 const hasText=(value:string|undefined)=>!!value?.trim();
 const amount=(value:number)=>'SAR '+(value/100).toFixed(2);
 

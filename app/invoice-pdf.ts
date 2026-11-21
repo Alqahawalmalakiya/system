@@ -19,7 +19,7 @@ export async function createInvoicePdf(element:HTMLElement|HTMLElement[],invoice
  const blocks=Array.from(clone.querySelectorAll('tr,.invoice-totals,.invoice-meta,.cancellation-note,.royal-footer')).map(e=>{const r=e.getBoundingClientRect();return {top:r.top-rect.top,bottom:r.bottom-rect.top}});
  const canvas=await html2canvas(clone,{scale:2,backgroundColor:'#ffffff',useCORS:true,logging:false,windowWidth:1100,scrollX:0,scrollY:0,onclone(doc){doc.documentElement.style.overflow='visible';doc.body.style.overflow='visible';}});
  const fit=Math.min(1,(canvas.width*277/190)/canvas.height);
- if(regularInvoice&&rowCount<=10&&fit>=0.88){
+ if(!regularInvoice||(rowCount<=10&&fit>=0.88)){
   const width=190*fit,height=canvas.height*width/canvas.width;
   if(page++)pdf.addPage();pdf.addImage(canvas.toDataURL('image/jpeg',0.97),'JPEG',(210-width)/2,10,width,height);
   continue;

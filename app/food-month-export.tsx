@@ -13,8 +13,12 @@ const quantityLabel=(name:string,q:number)=>isWeightFood(name)?number(q)+' كي�
 function Statement({rows,month,catalog}:{rows:Invoice[];month:string;catalog:{name:string}[]}){
  const summary=foodStatement(rows,catalog);
  return <section className="royal-invoice invoice-sheet food-statement" dir="rtl"><div className="royal-strip">القهوة الملكية · البيان الشهري للمأكولات</div><div className="invoice-brand"><img className="royal-logo" src="/royal-coffee-logo.png" alt="" width="140" height="140"/><h2>بيان {new Intl.DateTimeFormat('ar-SA-u-ca-gregory',{month:'long',year:'numeric'}).format(new Date(month+'-01T12:00:00+03:00'))}</h2></div>
- <h3>إجمالي الأصناف والكميات</h3><table className="royal-table"><thead><tr><th>الصنف</th><th>الكمية</th><th>الوحدة</th></tr></thead><tbody>{summary.items.map(item=><tr key={item.name+'|'+item.unit}><td>{item.name}</td><td>{number(item.quantity)}</td><td>{item.unit}</td></tr>)}</tbody></table>
- <table className="royal-table"><thead><tr><th>اليوم</th><th>عدد أيام العمل</th></tr></thead><tbody>{summary.weekdays.map(day=><tr key={day.name}><td>{day.name}</td><td>{number(day.count)}</td></tr>)}</tbody></table>
+ <p>{number(rows.length)} فاتورة · {number(summary.workDays)} أيام عمل</p>
+ <h3>إجمالي الأصناف والكميات</h3>
+ <div className="statement-items">{summary.items.map(item=><div key={item.name+'|'+item.unit}>
+  <span>{item.name}</span><b>{quantityLabel(item.name,item.quantity)}</b>
+ </div>)}</div>
+ <p className="statement-days">{summary.weekdays.filter(day=>day.count>0).map(day=>day.name+' '+number(day.count)).join(' · ')}</p>
  <div className="royal-totals"><div>السعر بدون الضريبة: <b>{money(summary.net)}</b></div><div>الضريبة: <b>{money(summary.tax)}</b></div><div>الإجمالي مع الضريبة: <b>{money(summary.price)}</b></div></div></section>;
 }
 export async function exportFoodMonth(rows:Invoice[],month:string,kind:'all'|'zip'|'selected',onProgress:(text:string)=>void,catalog:{name:string}[]=[]){

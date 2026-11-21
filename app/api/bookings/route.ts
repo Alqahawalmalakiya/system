@@ -1,4 +1,4 @@
-import {totals,validDate,validTime} from '../../../lib/invoice-values.mjs';
+import {totals,validDate,validTime,periodDays} from '../../../lib/invoice-values.mjs';
 import { getDb } from '../../../db';
 import { bookings,invoiceNumbers,quoteNumbers } from '../../../db/schema';
 import { eq,asc,and,sql } from 'drizzle-orm';
@@ -20,10 +20,18 @@ export async function POST(req:Request){
  if(mode==='food'&&(!items.length||items.some((x:any)=>!Number.isInteger(x.unitPrice)||x.unitPrice<0||x.unitPrice>1000000000||typeof x.quantity!=='number'||!Number.isFinite(x.quantity)||x.quantity<=0||x.quantity>10000||Math.abs(Math.round(x.quantity*100)-x.quantity*100)>0.000001||x.amount!==Math.round(x.unitPrice*x.quantity))))return Response.json({error:'راجع كميات المأكولات وأسعارها'},{status:400});
  if(mode==='food'){const net=items.reduce((s:number,x:any)=>s+x.amount,0);if(b.basePrice!==net+Math.round(net*taxRate/100))return Response.json({error:'إجمالي المأكولات غير مطابق'},{status:400});}
  if(mode==='hospitality'&&items.some((x:any)=>x.showPrice!==undefined&&typeof x.showPrice!=='boolean'||x.showPrice===true&&(!Number.isInteger(x.amount)||x.amount<0||x.amount>1000000000)))return Response.json({error:'راجع أسعار خدمات الضيافة'},{status:400});
+ const endDate=b.endDate??'',showPeriodTotal=b.showPeriodTotal??false;
+ if(typeof endDate!=='string'||typeof showPeriodTotal!=='boolean'||(endDate&&(mode!=='hospitality'||!periodDays(b.date,endDate)))||(showPeriodTotal&&!endDate))
+  return Response.json({error:'راجع تاريخ البداية والنهاية للفترة'},{status:400});
+ if(endDate&&items.some((item:any)=>item.showPrice)){
+  const daily=items.reduce((sum:number,item:any)=>sum+(item.showPrice?item.amount:0),0);
+  const net=daily*periodDays(b.date,endDate);
+  if(b.basePrice!==net+Math.round(net*taxRate/100))return Response.json({error:'إجمالي الفترة لا يطابق أسعار الخدمات اليومية'},{status:400});
+ }
  let invoiceGroup='';
  if(b.id){if(typeof b.id!=='string'||b.id.length>200)return Response.json({error:'رقم الحجز غير صالح'},{status:400});const current=(await getDb().select().from(bookings).where(eq(bookings.id,b.id)))[0];invoiceGroup=current?.invoiceGroup||'';}
  if(b.attachTo){if(b.id||typeof b.attachTo!=='string'||b.attachTo.length>200)return Response.json({error:'ربط غير صالح'},{status:400});const parent=(await getDb().select().from(bookings).where(eq(bookings.id,b.attachTo)))[0];if(!parent||parent.documentType!=='invoice'||documentType!=='invoice')return Response.json({error:'الفاتورة الأصلية غير موجودة'},{status:400});invoiceGroup=parent.invoiceGroup||parent.id;b.customer=parent.customer;b.phone=parent.phone;if(!parent.invoiceGroup)await getDb().update(bookings).set({invoiceGroup}).where(eq(bookings.id,parent.id));}
- const data={invoiceGroup,basePrice:b.basePrice,discountRate:b.discountRate,mode,...Object.fromEntries(fields.map(k=>[k,b[k].trim()])),items:JSON.stringify(items.map((x:any)=>({item:x.item.trim(),description:x.description.trim(),amount:Number.isInteger(x.amount)&&x.amount>=0?x.amount:0,...(mode==='food'?{quantity:x.quantity,unitPrice:x.unitPrice}:{showPrice:x.showPrice===true})}))),taxRate};
+ const data={endDate,showPeriodTotal,invoiceGroup,basePrice:b.basePrice,discountRate:b.discountRate,mode,...Object.fromEntries(fields.map(k=>[k,b[k].trim()])),items:JSON.stringify(items.map((x:any)=>({item:x.item.trim(),description:x.description.trim(),amount:Number.isInteger(x.amount)&&x.amount>=0?x.amount:0,...(mode==='food'?{quantity:x.quantity,unitPrice:x.unitPrice}:{showPrice:x.showPrice===true})}))),taxRate};
  if(b.id){const old=(await getDb().select().from(bookings).where(eq(bookings.id,b.id)))[0];if(!old)return Response.json({error:'الحجز غير موجود'},{status:404});if(documentType!==old.documentType)return Response.json({error:'لتحويل العرض استخدم زر تحويل إلى فاتورة رسمية'},{status:409});const changes={...data,price:b.price,paid:old.documentType==='quote'?0:b.paid,status:old.documentType==='quote'?old.status:b.status};await getDb().update(bookings).set(changes).where(eq(bookings.id,b.id));return Response.json({...old,...changes});}
  const id=crypto.randomUUID();const isQuote=documentType==='quote';const serial=(await getDb().insert(isQuote?quoteNumbers:invoiceNumbers).values({bookingId:id}).returning())[0].id;const number=isQuote?'QT-'+String(serial).padStart(4,'0'):String(serial+215).padStart(4,'0');const row={...data,id,documentType,quoteNumber:isQuote?number:'',invoice:number,price:b.price,paid:isQuote?0:b.paid,status:isQuote?'confirmed':b.status,createdAt:new Date().toISOString()} as typeof bookings.$inferInsert;await getDb().insert(bookings).values(row);return Response.json(row);
 }

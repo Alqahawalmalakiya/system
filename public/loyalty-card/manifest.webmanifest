@@ -1,0 +1,39 @@
+{
+  "id": "/loyalty-card/",
+  "name": "بطاقة الولاء | ضيافة القهوة الملكية",
+  "short_name": "القهوة الملكية",
+  "lang": "ar",
+  "dir": "rtl",
+  "start_url": "/loyalty-card/index.html",
+  "scope": "/loyalty-card/",
+  "display": "standalone",
+  "background_color": "#fbf4ea",
+  "theme_color": "#fbf4ea",
+  "icons": [
+    {
+      "src": "/loyalty-card/assets/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/loyalty-card/assets/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/loyalty-card/assets/icon-maskable-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/loyalty-card/assets/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "description": "بطاقة ولائك في ضيافة القهوة الملكية؛ مناسباتك ونقاطك وهداياك"
+}
